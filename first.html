@@ -144,40 +144,66 @@
     					<select id="country" name="city">
       					<option value="Wien">Wien</option>
       					<option value="Linz">Linz</option>
-      					<option value="Salzburg">Salzburg</option>
+                <option value="Salzburg">Salzburg</option>
                         <option value="Inssbruck">Innsbruck</option>
-    					</select>
+              </select>
 
-    				<label for="subject">Subject</label>
-    		<textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+            <label for="subject">Subject</label>
+        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-    		<input type="submit" value="Submit">
- 		 </form>
-		</div>
-  			</div>
-  			<div class="column">
-  				<div id="map" style="width:100%;height:500px"></div>
+        <input type="submit" value="Submit" id="submitbtn">
+     </form>
+    </div>
+        </div>
+        <div class="column">
+          <div id="map" style="width:100%;height:500px"></div>
 
-		<script>
-			function myMap() {
-  			var mapCanvas = document.getElementById("map");
-  			var mapOptions = {
-    			center: new google.maps.LatLng(48.1952,16.3503),
-    			zoom:18,
-    			mapTypeId:google.maps.MapTypeId.HYBRID
-  					};
-  			var map = new google.maps.Map(mapCanvas,mapOptions);
-					}
-		</script>
+    <script>
+      var firstName = "";
+      var lastName = "";
+      var country = "";
+      var message = "";
+      var countrylist = ["Wien", "Linz", "Salzburg", "Innsbruck"];
+      var submit = document.getElementById("submitbtn");
+      submit.addEventListener('click', getInfo)
 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyuS0hy1Kn6zSLNlBiyMQyFcbCVO2mLbg&callback=myMap"></script>
-		</script>
+      function getInfo() {
+        firstName = document.getElementById("fname").value;
+        lastName = document.getElementById("lname").value;
+        country = document.getElementById("country").selectedIndex;
+        message = document.getElementById("subject").value;
+        console.log(firstName);
+        console.log(lastName);
+        console.log(countrylist[country]);
+        console.log(message);
 
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyuS0hy1Kn6zSLNlBiyMQyFcbCVO2mLbg&callback=myMap"></script>
-  			</div>
-  		</div>
+      }
+
+    </script>
+
+    <script>
+      function myMap() {
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {
+          center: new google.maps.LatLng(48.1952,16.3503),
+          zoom:18,
+          mapTypeId:google.maps.MapTypeId.HYBRID
+            };
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+          }
+
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyuS0hy1Kn6zSLNlBiyMQyFcbCVO2mLbg&callback=myMap"></script>
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyuS0hy1Kn6zSLNlBiyMQyFcbCVO2mLbg&callback=myMap"></script>
+        </div>
+      </div>
   
 </div>
 <script type="text/javascript" src="first.js"></script>
+
+
 </body>
 </html>
